@@ -21,13 +21,3 @@
     "nodemon": "^3.0.1"
   }
 }
-
-// https://www.npmjs.com/package/node-cron
-// https://www.npmjs.com/package/moment
-// https://www.npmjs.com/package/dotenv
-// https://www.npmjs.com/package//nodemon
-// https://www.npmjs.com/package/express-joi-validation
-// https://keep.google.com/#home  
-// https://cloud.mongodb.com/v2/64d06a4e4620f341ba987ea6#/overview
-// https://github.com/abhirnw/NODE_JS/blob/main/package.json
-// https://classroom.google.com/u/0/c/NjE0ODk5NDgxMTY2?hl=en_GB
