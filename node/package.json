@@ -10,6 +10,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-joi-validation": "^5.0.1",
+    "joi": "^17.9.2",
+    "moment": "^2.29.4",
+    "mongoose": "^7.4.2",
+    "node-cron": "^3.0.2",
+    "nodemon": "^3.0.1"
   }
 }
+
+// https://www.npmjs.com/package/node-cron
+// https://www.npmjs.com/package/moment
+// https://www.npmjs.com/package/dotenv
+// https://www.npmjs.com/package//nodemon
+// https://www.npmjs.com/package/express-joi-validation
+// https://keep.google.com/#home  
+// https://cloud.mongodb.com/v2/64d06a4e4620f341ba987ea6#/overview
+// https://github.com/abhirnw/NODE_JS/blob/main/package.json
+// https://classroom.google.com/u/0/c/NjE0ODk5NDgxMTY2?hl=en_GB
