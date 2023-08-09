@@ -1,18 +1,20 @@
 const http=require('http');
 const express=require('express');
+const { connectDB } = require("./src/db/dbConnection");
+const config = require("./src/config/config");
 
 const app=express();
 
-app.get('/',(req,res)=>{
- res.send("Welcome to home page");
-});
+/** whenever   route not created and you try to use that route then throw error. */
+app.use((req, res, next) => {
+    next(new Error("Route not found!"));
+  });
 
-app.get('/about',(req,res)=>{
-    res.send("Welcome to about page");
+/** Database connection */
+connectDB()
+
+// creating server using http
+const server= http.createServer(app);
+server.listen(config.port,()=>{
+    console.log("server listing the port 3000");
 });
-app.listen(4500);
-// http.createServer((req,res)=>{
-//  res.writeHead(200,{'content-type':'text/html'});
-//  res.write('hello world !')
-//  res.end();
-// }).listen(4500);
