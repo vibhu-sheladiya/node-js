@@ -1,21 +1,24 @@
 const express=require('express');
 // const {userValidation}= require('../../validations');
-const {userController}=require('../../controller');
+const {categoryController}=require('../../controller');
 // const validate=require('../../middlewares/validate');
 const router=express.Router();
 
-// create user 
-router.post("/create-user",
+// create category 
+router.post("/create-category",
 // validate(userValidation.createUser),
-userController.createUser
+categoryController.createCategory
 );
+// router.post('/list',(req,res)=>{
+//     res.write('ijkk');
+//     res.end();
+// })
 
 // get user list 
-router.get(
-    "/list",
-    // validate(userValidation.getUserList),
-    userController.getUserList
-  );
+// router.post("/create-user",
+// // validate(userValidation.getUserList),
+// userController.getUserList
+// );
 
 // get user list simple api
 // router.post('/create-user',(req,res)=>{

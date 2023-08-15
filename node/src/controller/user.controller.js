@@ -2,7 +2,7 @@ const { userService } = require("../services");
 
 /** create user */
 const createUser = async (req, res) => {
-  console.log()
+  // console.log()
   try {
     const reqBody = req.body;
 
@@ -28,33 +28,32 @@ const createUser = async (req, res) => {
 };
   
   /** Get user list */
-  // const getUserList = async (req, res) => {
-  //   try {
-  //     const { search, ...options } = req.query;
-  //     let filter = {};
+  const getUserList = async (req, res) => {
+    try {
+      const { search, ...options } = req.query;
+      let filter = {};
   
-  //     if (search) {
-  //       filter.$or = [
-  //         { first_name: { $regex: search, $options: "i" } },
-  //         { last_name: { $regex: search, $options: "i" } },
-  //       ];
-  //     }
+      if (search) {
+        filter.$or = [
+          { first_name: { $regex: search, $options: "i" } },
+          { last_name: { $regex: search, $options: "i" } },
+        ];
+      }
+        const getList = await userService.getUserList(filter, options);
   
-  //     const getList = await userService.getUserList(filter, options);
-  
-  //     res.status(200).json({
-  //       success: true,
-  //       message: "Get user list successfully!",
-  //       data: getList,
-  //     });
-  //   } catch (error) {
-  //     res.status(400).json({ success: false, message: error.message });
-  //   }
-  // };
+      res.status(200).json({
+        success: true,
+        message: "Get user list successfully!",
+        data: getList,
+      });
+    } catch (error) {
+      res.status(400).json({ success: false, message: error.message });
+    }
+  };
 
   module.exports = {
-    createUser
-    // getUserList,
+    createUser,
+    getUserList
     // getUserDetails,
     // updateDetails,
     // deleteUser,
