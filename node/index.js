@@ -3,7 +3,7 @@ const express=require('express');
 const bodyParser = require("body-parser");
 const { connectDB } = require("./src/db/dbConnection");
 const config = require("./src/config/config");
-const routes=require('./src/routes/v1')
+const routes=require('./src/routes/v1');
 const app=express();
 
 /**
@@ -35,9 +35,5 @@ connectDB()
 
 const server= http.createServer(app);
 server.listen(config.port,()=>{
-    console.log("server listing the port 3000");
+console.log("server listing the port 3000");
 });
-
-
-
-

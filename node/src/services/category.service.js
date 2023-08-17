@@ -7,7 +7,6 @@ const { Category } = require("../models");
 const createCategory = async (reqBody) => {
   return Category.create(reqBody);
 };
-
 /**
  * Get user list
 //  * @param {object} filter
@@ -18,8 +17,8 @@ const createCategory = async (reqBody) => {
 // const skip = (Number(options.page || 1) - 1) * Number(options.limit || 10);
 // return User.find(filter).skip(skip).limit(options.limit).select("-password");
 //   };
-
 module.exports={
     createCategory,
     // getUserList
 };
+
