@@ -14,12 +14,19 @@ const createUser = async (reqBody) => {
   * @param {object} options
   * @returns {Promise<User>}
  */
-const getUserList = async (filter, options) => {
-const skip = (Number(options.page || 1) - 1) * Number(options.limit || 10);
-return User.find(filter).skip(skip).limit(options.limit).select("-password");
+const getUserList = async (req,res) => {
+return User.find()
+// const skip = (Number(options.page || 1) - 1) * Number(options.limit || 10);
+// return User.find(filter).skip(skip).limit(options.limit).select("-password");
   };
 
+  // delete user
+  const deleteUser = async (userId) => {
+    return User.findByIdAndDelete(userId);
+  };
+  
 module.exports={
     createUser,
-    getUserList
+    getUserList,
+    deleteUser
 };

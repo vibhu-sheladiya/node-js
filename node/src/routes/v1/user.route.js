@@ -17,6 +17,10 @@ router.get(
     userController.getUserList
   );
 
+  // delete user list
+  router.delete('/delete-user/:userId',
+  userController.deleteUser);
+
 // get user list simple api
 // router.post('/create-user',(req,res)=>{
 //     res.send("connected succesfuly");
