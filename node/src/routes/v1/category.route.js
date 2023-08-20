@@ -1,12 +1,12 @@
 const express=require('express');
-// const {userValidation}= require('../../validations');
+const {userValidation}= require('../../validations');
 const {categoryController}=require('../../controller');
-// const validate=require('../../middlewares/validate');
+const validate=require('../../middlewares/validate');
 const router=express.Router();
 
 // create category 
 router.post("/create-category",
-// validate(userValidation.createUser),
+validate(userValidation.createUser),
 categoryController.createCategory
 );
 // router.post('/list',(req,res)=>{
