@@ -13,8 +13,8 @@ bookController.createBook
 
 // get list book detail
 router.get("/list",
-
+validate(bookValidation.getBookList),
 bookController.getBookList
-)
+);
 
 module.exports=router;

@@ -13,7 +13,7 @@ userController.createUser
 // get user list 
 router.get(
     "/list",
-    // validate(userValidation.getUserList),
+    validate(userValidation.getUserList),
     userController.getUserList
   );
 
