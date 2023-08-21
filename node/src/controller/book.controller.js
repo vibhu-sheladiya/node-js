@@ -31,8 +31,26 @@ const getBookList =async (req,res)=>{
     } catch (error) {
         res.status(400).json({success:false,message:error.message})
     }
-}
+};
+
+// get book details by id
+const getBookDetails= async(req,res)=>{
+    try {
+        const bookDetails = await bookService.getBookById(req.params.userId);
+        if(!bookDetails){
+            throw new Error("book not found");
+        }
+        res.status(200).json({
+            success:"Book details get successfully",
+            data:bookDetails,
+        });
+    } catch (error) {
+        res.status(400).json({success: false,message:error.message});
+
+    }
+};
 module.exports={ 
       createBook,
-      getBookList
+      getBookList,
+      getBookDetails
 }

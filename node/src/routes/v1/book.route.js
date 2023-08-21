@@ -17,4 +17,8 @@ validate(bookValidation.getBookList),
 bookController.getBookList
 );
 
+// get Book details By Id 
+router.get("/get-details/:userId",
+bookController.getBookDetails);
+
 module.exports=router;
