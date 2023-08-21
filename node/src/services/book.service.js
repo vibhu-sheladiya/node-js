@@ -15,12 +15,18 @@ const getBookList= async (req,res)=>{
 }
 
 // get book details by id 
-const getBookById= async(userId)=>{
-    return Book.findById(userId);
+const getBookById= async(bookId)=>{
+    return Book.findById(bookId);
 };
+
+// delete Book
+const deleteBook= async(bookId)=>{
+    return Book.findByIdAndDelete(bookId)
+}
 
 module.exports={
     createBook,
     getBookList,
-    getBookById
+    getBookById,
+    deleteBook
 };

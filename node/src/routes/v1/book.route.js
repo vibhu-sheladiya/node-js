@@ -18,7 +18,12 @@ bookController.getBookList
 );
 
 // get Book details By Id 
-router.get("/get-details/:userId",
+router.get("/get-details/:bookId",
 bookController.getBookDetails);
+
+// delete book
+router.delete("/delete-user/:bookId",
+bookController.deleteBook);
+
 
 module.exports=router;
