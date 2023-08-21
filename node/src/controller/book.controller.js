@@ -36,7 +36,7 @@ const getBookList =async (req,res)=>{
 // get book details by id
 const getBookDetails= async(req,res)=>{
     try {
-        const bookDetails = await bookService.getBookById(req.params.userId);
+        const bookDetails = await bookService.getBookById(req.params.bookId);
         if(!bookDetails){
             throw new Error("book not found");
         }
@@ -56,17 +56,18 @@ const deleteBook=async(req,res)=>{
         const bookId=req.params.bookId;
         const bookExists=await bookService.getBookById(bookId);
         if(!bookExists){
-            throw new Error("user not found");
+            throw new Error("book not found");
         }
         await bookService.deleteBook(bookId);
         res.status(200).json({
             success:true,
-            message:"User deleted Successfully ",
+            message:"book deleted Successfully ",
         });
     } catch (error) {
         res.status(400).json({success:false,message:error.message});
     }
 };
+// 	
 module.exports={ 
       createBook,
       getBookList,

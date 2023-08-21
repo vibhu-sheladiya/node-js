@@ -8,6 +8,7 @@ const createBook={
 }),
 };
 
+// get book list 
 const getBookList={
     body: joi.object().keys({
         // pageNo  : joi.number().integer().min(1).default(0),
@@ -15,15 +16,21 @@ const getBookList={
         // .default(20),
         // sortField    : joi.string().valid("bookName","author").default(""),
         // order     :"asc"|| "desc",
-
         search: joi.string().trim().allow(""),
         sortBy: joi.string().trim().allow(""),
         limit: joi.number().integer().allow(""),
         page: joi.number().integer().allow("")
+    }),
+};
 
+// get book details by id
+const getDetails={
+    params:joi.object().keys({
+        bookId:joi.string().required().trim(),
     }),
 };
 module.exports={
     createBook,
-    getBookList
+    getBookList,
+    getDetails
 }

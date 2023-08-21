@@ -19,10 +19,12 @@ bookController.getBookList
 
 // get Book details By Id 
 router.get("/get-details/:bookId",
+// validate(bookValidation.getDetails),
 bookController.getBookDetails);
 
 // delete book
-router.delete("/delete-user/:bookId",
+router.delete("/delete-book/:bookId",
+validate(bookValidation.getDetails),
 bookController.deleteBook);
 
 
