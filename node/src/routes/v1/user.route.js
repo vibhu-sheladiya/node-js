@@ -17,6 +17,9 @@ router.get(
     userController.getUserList
   );
 
+  // get user by id
+  router.get('/get-userid',
+  userController.)
   // delete user list
   router.delete('/delete-user/:userId',
   userController.deleteUser);

@@ -5,18 +5,15 @@ const createUser = async (req, res) => {
   // console.log()
   try {
     const reqBody = req.body;
-
       console.log(reqBody,'+++++++++++ reqBody.email');
     // const userExists = await userService.getUserByEmail(reqBody.email);
     // if (userExists) {
     //   throw new Error("User already created by this email!");
     // }
-
     const user = await userService.createUser(reqBody);
     if (!user) {
       throw new Error("Something went wrong, please try again or later!");
     }
-
     res.status(200).json({
       success: true,
       message: reqBody,
@@ -45,12 +42,27 @@ const createUser = async (req, res) => {
       //     { last_name: { $regex: search, $options: "i" } },
       //   ];
       }
-  
-  
      catch (error) {
       res.status(400).json({ success: false, message: error.message });
     }
   };
+
+  // get user list by id
+  const getUserById =  async (req, res)=>{
+    try {
+      const getId= await userService.getUserById(req.params.userId);
+      if(!getId){
+        throw new Error("user not found");
+      }
+      res.status(200).json({
+        success:true,
+        message:"user get successfully",
+        data: {getId},
+      });
+    } catch (error) {
+      res.status(400).json({success:false, message:error.message});
+    }
+  }
 
   // delete user list
   const deleteUser = async (req, res) => {

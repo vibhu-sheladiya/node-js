@@ -20,6 +20,10 @@ return User.find()
 // return User.find(filter).skip(skip).limit(options.limit).select("-password");
   };
 
+  // get user details by id
+  const getUserById =async(userId)=>{
+    return User.findById(userId);
+  }
   // delete user
   const deleteUser = async (userId) => {
     return User.findByIdAndDelete(userId);
@@ -28,5 +32,6 @@ return User.find()
 module.exports={
     createUser,
     getUserList,
-    deleteUser
+    deleteUser,
+    getUserById
 };
