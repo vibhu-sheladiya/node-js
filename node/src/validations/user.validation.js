@@ -18,7 +18,19 @@ const createUser={
         }),
     };
 
+    /**get user details by id and delete id(both together work*/
+    const getUserById = {
+        params:joi.object().keys({
+            userId:joi.string().required().trim(),
+        }),
+        };
+
+        
+
+
+
     module.exports={
         createUser,
-        getUserList
+        getUserList,
+        getUserById
     }

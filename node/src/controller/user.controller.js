@@ -48,21 +48,21 @@ const createUser = async (req, res) => {
   };
 
   // get user list by id
-  const getUserById =  async (req, res)=>{
+  const getUserId =  async (req, res)=>{
     try {
-      const getId= await userService.getUserById(req.params.userId);
-      if(!getId){
+      const getDetails = await userService.getUserById(req.params.userId);
+      if(!getDetails){
         throw new Error("user not found");
       }
       res.status(200).json({
         success:true,
         message:"user get successfully",
-        data: {getId},
+        data: {getDetails},
       });
     } catch (error) {
       res.status(400).json({success:false, message:error.message});
     }
-  }
+  };
 
   // delete user list
   const deleteUser = async (req, res) => {
@@ -86,8 +86,8 @@ const createUser = async (req, res) => {
   module.exports = {
     createUser,
     getUserList,
-    // getUserDetails,
+    getUserId,
     // updateDetails,
-    deleteUser,
+    deleteUser
     // sendMail,
   };

@@ -18,14 +18,17 @@ router.get(
   );
 
   // get user by id
-  router.get('/get-userid',
-  userController.)
+  router.get('/getid-user/:userId',
+  validate(userValidation.getUserById),
+  userController.getUserId
+  );
+
   // delete user list
   router.delete('/delete-user/:userId',
-  userController.deleteUser);
+  validate(userValidation.getUserById),
+  userController.deleteUser
+  );
 
-// get user list simple api
-// router.post('/create-user',(req,res)=>{
-//     res.send("connected succesfuly");
-// });
+  
+
 module.exports=router;

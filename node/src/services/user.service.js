@@ -23,7 +23,7 @@ return User.find()
   // get user details by id
   const getUserById =async(userId)=>{
     return User.findById(userId);
-  }
+  };
   // delete user
   const deleteUser = async (userId) => {
     return User.findByIdAndDelete(userId);
