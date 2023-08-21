@@ -1,25 +1,31 @@
 const express=require('express');
-const {userValidation}= require('../../validations');
+const {categoryValidation}= require('../../validations');
 const {categoryController}=require('../../controller');
 const validate=require('../../middlewares/validate');
 const router=express.Router();
 
 // create category 
 router.post("/create-category",
-validate(userValidation.createUser),
+validate(categoryValidation.createCategories),
 categoryController.createCategory
 );
-// router.post('/list',(req,res)=>{
-//     res.write('ijkk');
-//     res.end();
-// })
 
-// get user list 
-// router.post("/create-user",
-// // validate(userValidation.getUserList),
-// userController.getUserList
-// );
 
+// get category list 
+router.get("/list",
+validate(categoryValidation.getCategoriesList),
+categoryController.getCategoryList
+);
+
+/**get category list by id */
+router.get('/category-id/:categoryId',
+// validate(categoryValidation.getCategoryDetails),
+categoryController.getCategoryId);
+
+/**delete category  */
+router.delete('/delete/:categoryId',
+validate(categoryValidation.getCategoryDetails),
+categoryController.deleteCategory);
 // get user list simple api
 // router.post('/create-user',(req,res)=>{
 //     res.send("connected succesfuly");
