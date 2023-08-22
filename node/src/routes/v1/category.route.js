@@ -26,6 +26,8 @@ categoryController.getCategoryId);
 router.delete('/delete/:categoryId',
 validate(categoryValidation.getCategoryDetails),
 categoryController.deleteCategory);
+
+
 // get user list simple api
 // router.post('/create-user',(req,res)=>{
 //     res.send("connected succesfuly");

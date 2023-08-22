@@ -51,13 +51,14 @@ const createCategory = async (req, res) => {
         };
 
         /**delete category */
-        const deleteCategory=(req,res)=>async()=>{
+        const deleteCategory=async(req,res)=>{
           try{
             const categoryId=req.params.categoryId;
-            const categoryExists= await categoryService.deleteCategory(categoryId);
+            const categoryExists= await categoryService.getCategoryListId(categoryId);
             if(!categoryExists){
               throw new Error ("category not found");
             }
+            await categoryService.deleteCategory(categoryId);
             res.status(200).json({
               success:true,
               message :"Successfully deleted",
