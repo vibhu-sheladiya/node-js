@@ -24,10 +24,7 @@ app.use('/v1',routes);
 
 /** whenever   route not created and you try to use that route then throw error. */
 app.use((req, res, next) => {
-  // res.send("hi") 
-  // res._write('hi');
   next(new Error("Route not found!"));
-    // next()
   });
 
 /** Database connection */

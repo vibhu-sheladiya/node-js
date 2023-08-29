@@ -16,6 +16,7 @@ const createCategory = async (reqBody) => {
 const categoryList= async(req,res)=>{
   return Category.find()
 };
+// [to my understan]
 // const getUserList = async (filter, options) => {
 // const skip = (Number(options.page || 1) - 1) * Number(options.limit || 10);
 // return User.find(filter).skip(skip).limit(options.limit).select("-password");
