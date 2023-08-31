@@ -88,35 +88,7 @@ const updateMobile = async (req, res) => {
     });
   }
 };
-
-// update mobile status
-// const updateStatus=async(req,res)=>{
-//   try {
-//     const mobileId=req.params.mobileId;
-//     const mobileEx = await mobileService.getMobileById(mobileId);
-//     if (!mobileEx) {
-//       throw new Error("mobile does not exist");
-//     }
-//     const currentStatus=req.params.mobileId;
-//     if(currentStatus.is_active==true){
-//        // Update the data
-//        currentStatus.is_active = false;
-//       }elseif(currentStatus.is_active==false)
-      
-//       {
-//         currentStatus.is_active = true;
-//       }
-//       await mobileService.changeStatus(mobileId, req.body);
-//       res.status(201).json({
-//         success: true,
-//         message: "successfully updated",
-//       });
-
-//   } catch (error) {
-    
-//   }
-// }
-
+// manage status
 const updateStatus = async (req, res) => {
   try {
     const manageStatus  = await mobileService.changeStatus(req.params.mobileId);

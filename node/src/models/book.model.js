@@ -20,6 +20,7 @@ const bookScheme= new mongoose.Schema(
             default:'',
             maxlength:512,
         },
+        // [to my understand]
         // coverImageURL:{
         //     type:String,
         //     trim:true,
@@ -29,14 +30,6 @@ const bookScheme= new mongoose.Schema(
         //     type:Boolean,
         //     default:true,
         //     },  
-            // createdAt:{
-            //     type:Date,
-            //     default: Date.now()
-            //     },
-                // updatedAt:{
-                //     type:Date,
-                //     default: null
-                //     },
     },{timestamps:true,versionKey:false}
 );
 
