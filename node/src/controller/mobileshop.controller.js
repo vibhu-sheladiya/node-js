@@ -90,32 +90,50 @@ const updateMobile = async (req, res) => {
 };
 
 // update mobile status
-const updateStatus=async(req,res)=>{
-  try {
-    const mobileId=req.params.mobileId;
-    const mobileEx = await mobileService.getMobileById(mobileId);
-    if (!mobileEx) {
-      throw new Error("mobile does not exist");
-    }
-    const currentStatus=req.params.mobileId;
-    if(currentStatus.is_active==true){
-       // Update the data
-       currentStatus.is_active = false;
-      }elseif(currentStatus.is_active==false)
+// const updateStatus=async(req,res)=>{
+//   try {
+//     const mobileId=req.params.mobileId;
+//     const mobileEx = await mobileService.getMobileById(mobileId);
+//     if (!mobileEx) {
+//       throw new Error("mobile does not exist");
+//     }
+//     const currentStatus=req.params.mobileId;
+//     if(currentStatus.is_active==true){
+//        // Update the data
+//        currentStatus.is_active = false;
+//       }elseif(currentStatus.is_active==false)
       
-      {
-        currentStatus.is_active = true;
-      }
-      await mobileService.changeStatus(mobileId, req.body);
+//       {
+//         currentStatus.is_active = true;
+//       }
+//       await mobileService.changeStatus(mobileId, req.body);
+//       res.status(201).json({
+//         success: true,
+//         message: "successfully updated",
+//       });
+
+//   } catch (error) {
+    
+//   }
+// }
+
+const updateStatus = async (req, res) => {
+  try {
+    const manageStatus  = await mobileService.changeStatus(req.params.mobileId);
+    let resMessage = manageStatus.is_active?"mobile can enable to active":"mobile can not enable to active";
       res.status(201).json({
         success: true,
-        message: "successfully updated",
+        message: resMessage,
+        is_active: manageStatus,
       });
-
   } catch (error) {
-    
+    res.status(error?.statusCode || 400).json({
+      success: false,
+      message: error?.message || "something went wrong ,please try again or later",
+    });
   }
-}
+};
+
 module.exports = {
   createMobile,
   getMobileList,
