@@ -15,13 +15,13 @@ const getOrderList= async (req,res)=>{
 }
 
 // get Order details by id 
-const getOrderById= async(cartId)=>{
-    return Order.findById(cartId);
+const getOrderById= async(orderId)=>{
+    return Order.findById(orderId);
 };
 
 // delete Order
-const deleteOrder= async(cartId)=>{
-    return Order.findByIdAndDelete(cartId)
+const deleteOrder= async(orderId)=>{
+    return Order.findByIdAndDelete(orderId)
 }
 
 module.exports={
