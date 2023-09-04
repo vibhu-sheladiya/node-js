@@ -1,5 +1,10 @@
 module.exports.userService=require('./user.service');
-module.exports.mobileService=require('./mobileshop.service');
 module.exports.categoryService=require('./category.service');
 module.exports.productService=require('./product.service');
-module.exports.bookService=require('./book.service');
+module.exports.addcartService=require('./addcart.service');
+module.exports.viewService=require('./view.service');
+module.exports.orderService=require('./order.service');
+module.exports.paymentService=require('./payment.service');
+module.exports.shipperService=require('./shipper.service');
+// module.exports.mobileService=require('./mobileshop.service');
+// module.exports.bookService=require('./book.service');
