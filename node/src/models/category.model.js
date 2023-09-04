@@ -16,7 +16,7 @@ const categoryScheme = new mongoose.Schema(
       default: false,
     },
   },
-  { timestamps: true,versionKey:false},
+  { timestamps: true, versionKey: false }
 );
 
 const Category = mongoose.model("categorys", categoryScheme);

@@ -10,20 +10,37 @@ const userScheme = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    adress: {
+      type: String,
+      trim: true,
+    },
+    city: {
+      type: String,
+      trim: true,
+    },
+    state: {
+      type: String,
+      trim: true,
+    },
+    country: {
+      type: String,
+      trim: true,
+    },
     email: {
       type: String,
       trim: true,
-    },password:{
-        type :String,
-    },is_active:{
-        type:Boolean,
-        default:true,
+    },
+    password: {
+      type: String,
+    },
+    is_active: {
+      type: Boolean,
+      default: true,
     },
   },
 
   { timestamps: true }
 );
 
-const User=mongoose.model("users",userScheme);
-module.exports= User;
-
+const User = mongoose.model("users", userScheme);
+module.exports = User;
