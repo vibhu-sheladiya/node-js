@@ -1,12 +1,14 @@
 const express=require('express');
 const {  productController}=require('../../controller');
-// const validate=require('../../middlewares/validate');
-// const {bookValidation}= require('../../validations');
+// const { validate } = require('../../models/user.model');
+const validate=require('../../middlewares/validate');
+const {productValidation}= require('../../validations');
 
 const router=express.Router();
 
 // create book
 router.post("/create-product",
+validate(productValidation.createProducts),
 productController.createProduct
 );
 

@@ -1,47 +1,47 @@
-const {bookService}=require("../services");
+const {addcartService}=require("../services");
 
-/** create user */
-const createBook=async(req,res)=>{
+/** create cart */
+const createCart=async(req,res)=>{
     try {
         const reqBody=req.body;
-        console.log(reqBody,'+++++++++++++++++++++++++++++++++req.book');
-        const book =await bookService.createBook(reqBody);
-        if(!book){
+        console.log(reqBody,'+++++++++++++++++++++++++++++++++req.cart');
+        const cart =await addcartService.createAddcart(reqBody);
+        if(!cart){
             throw new Error("something went wrong,please try again and later");
         }
          res.status(200).json({
             success:true,
             message:"success",
-            data:book
+            data:cart
          });
     } catch (error) {
         res.status(400).json({success:true,message:error.message})
     }
 };
 
-// get book list
-const getBookList =async (req,res)=>{
+// get cart list
+const getCartList =async (req,res)=>{
     try {
-        const bookList= await bookService.getBookList(req,res);
+        const cartList= await addcartService.getAddcartList(req,res);
         res.status(200).json({
             success : true ,
             message :"success" ,
-            data    :  {bookList},
+            data    :  {cartList},
         })
     } catch (error) {
         res.status(400).json({success:false,message:error.message})
     }
 };
 
-// get book details by id
-const getBookDetails= async(req,res)=>{
+// get cart details by id
+const getCartDetails= async(req,res)=>{
     try {
-        const bookDetails = await bookService.getBookById(req.params.bookId);
-        if(!bookDetails){
-            throw new Error("book not found");
+        const cartDetails = await addcartService.getAddcartById(req.params.cartId);
+        if(!cartDetails){
+            throw new Error("cart not found");
         }
         res.status(200).json({
-            success:"Book details get successfully",
+            success:"cart details get successfully",
             data:bookDetails,
         });
     } catch (error) {
@@ -50,18 +50,18 @@ const getBookDetails= async(req,res)=>{
     }
 };
 
-// delete book by id
-const deleteBook=async(req,res)=>{
+// delete cart by id
+const deleteCart=async(req,res)=>{
     try {
-        const bookId=req.params.bookId;
-        const bookExists=await bookService.getBookById(bookId);
-        if(!bookExists){
-            throw new Error("book not found");
+        const cartId=req.params.cartId;
+        const cartExists=await addcartService.getAddcartById(cartId);
+        if(!cartExists){
+            throw new Error("cart not found");
         }
-        await bookService.deleteBook(bookId);
+        await addcartService.deleteAddcart(cartId);
         res.status(200).json({
             success:true,
-            message:"book deleted Successfully ",
+            message:"cart deleted Successfully ",
         });
     } catch (error) {
         res.status(400).json({success:false,message:error.message});
@@ -69,8 +69,8 @@ const deleteBook=async(req,res)=>{
 };
 // 	
 module.exports={ 
-      createBook,
-      getBookList,
-      getBookDetails,
-      deleteBook
+    createCart,
+      getCartList,
+      getCartDetails,
+      deleteCart
 }
