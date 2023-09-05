@@ -11,9 +11,6 @@ const shipperScheme = new mongoose.Schema(
     company_email: {
       type: String,
     },
-    company_phone: {
-      type: Number,
-    },
     is_active: {
       type: Boolean,
       default: false,

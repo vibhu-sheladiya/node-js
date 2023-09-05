@@ -5,6 +5,5 @@ module.exports.Cart = require("./addcart.model");
 module.exports.Order = require("./order.model");
 module.exports.Payment = require("./payment.model");
 module.exports.Shipper = require("./shipper.model");
-module.exports.View = require("./view.model");
 // module.exports.Mobile= require("./mobileshop.model");
 // module.exports.Book = require("./book.model");

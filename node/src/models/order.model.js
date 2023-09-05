@@ -5,12 +5,10 @@ const orderScheme = new mongoose.Schema(
       type: String,
       // required : true
     },
-    user: { type: mongoose.Types.ObjectId, ref: "" },
-    product: { type: mongoose.Types.ObjectId, ref: "" },
-    shipper: { type: mongoose.Types.ObjectId, ref: "" },
-    payment: { type: mongoose.Types.ObjectId, ref: "" },
-    productname: { type: String },
-    price: { type: Number },
+    user: { type: mongoose.Types.ObjectId, ref: "users" },
+    product: { type: mongoose.Types.ObjectId, ref: "item" },
+    // shipper: { type: mongoose.Types.ObjectId, ref: "" },
+    payment: { type: mongoose.Types.ObjectId, ref: "payment" },
     quantity: { type: Number },
     totalPrice: { type: Number },
 

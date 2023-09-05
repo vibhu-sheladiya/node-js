@@ -3,3 +3,7 @@ module.exports.mobileValidation=require('./mobileshop.validation');
 module.exports.categoryValidation=require('./category.validation');
 module.exports.bookValidation=require('./book.validation');
 module.exports.productValidation=require('./product.validation');
+module.exports.shipperValidation=require('./shipper.validation');
+module.exports.paymentValidation=require('./payment.validation');
+module.exports.cartValidation=require('./addcart.validation');
+module.exports.orderValidation=require('./order.validation');

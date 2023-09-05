@@ -18,14 +18,14 @@ const paymentScheme = new mongoose.Schema(
       trim: true,
     },
     // [pending,successfull,failed]
-    status: {
+    // status: {
+    //   type: String,
+    //   trim: true,
+    // },
+    bank_name: {
       type: String,
-      trim: true,
     },
-    bankName: {
-      type: String,
-    },
-    accountNo: {
+    account_no: {
       type: Number,
     },
     ifsCode: {

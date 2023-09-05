@@ -11,7 +11,7 @@ return Shipper.create(reqBody);
 
 // get/list Shipper service
 const getShipperList= async (req,res)=>{
-    return Shipper.find();
+    return Shipper.find().populate("product");
 }
 
 // get Shipper details by id 

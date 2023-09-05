@@ -11,7 +11,7 @@ return Payment.create(reqBody);
 
 // get/list Payment service
 const getPaymentList= async (req,res)=>{
-    return Payment.find();
+    return Payment.find().populate("user");
 }
 
 // get Payment details by id 

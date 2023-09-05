@@ -1,26 +1,28 @@
 const express=require('express');
 const { paymentController}=require('../../controller');
-
+const validate=require('../../middlewares/validate');
+const {paymentValidation}= require('../../validations');
 const router=express.Router();
 
 // create payment
 router.post("/create-payment",
-paymentController
+validate(paymentValidation.createPayment),
+paymentController.createPayment
 );
 
 // get list payment detail
 router.get("/list",
-paymentController
+paymentController.getPaymentList
 );
 
 // get payment details By Id 
 router.get("/get-details/:paymentId",
-paymentController
+paymentController.getPaymentDetails
 );
 
 // delete a
 router.delete("/delete-payment/:paymentId",
-paymentController
+paymentController.deletePayment
 );
 
 

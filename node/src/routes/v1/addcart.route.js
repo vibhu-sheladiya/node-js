@@ -1,12 +1,13 @@
 const express=require('express');
 const { addcartController}=require('../../controller');
-const { validate } = require('../../models/user.model');
-const { productValidation } = require('../../validations');
+// const { validate } = require('../../models/user.model');
+// const { cartValidation } = require('../../validations');
 
 const router=express.Router();
 
 // create book
 router.post("/create-cart",
+// validate(cartValidation.createCarts),
 addcartController.createCart
 );
 

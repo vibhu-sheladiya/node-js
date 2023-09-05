@@ -11,7 +11,7 @@ return Cart.create(reqBody);
 
 // get/list Addcart service
 const getAddcartList= async (req,res)=>{
-    return Cart.find();
+        return Cart.find().populate("user").populate("product");
 }
 
 // get Addcart details by id 

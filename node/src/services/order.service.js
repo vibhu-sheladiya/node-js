@@ -11,7 +11,7 @@ return Order.create(reqBody);
 
 // get/list Order service
 const getOrderList= async (req,res)=>{
-    return Order.find();
+    return Order.find().populate("user").populate("product").populate("payment");
 }
 
 // get Order details by id 
