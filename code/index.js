@@ -3,7 +3,7 @@ const express=require('express');
 const bodyParser = require("body-parser");
 const { connectDB } = require("./src/db/dbConnection");
 const config = require("./src/config/config");
-const routes=require('./src/routes/v1');
+// const routes=require('./src/routes/v1');
 const app=express();
 
 /**
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // router with name space 
-app.use('/v1',routes);
+// app.use('/v1',routes);
 
 /** whenever   route not created and you try to use that route then throw error. */
 app.use((req, res, next) => {
@@ -32,5 +32,5 @@ connectDB()
 
 const server= http.createServer(app);
 server.listen(config.port,()=>{
-console.log("server listing the port 3000");
+console.log("server listing the port 5000");
 });
