@@ -8,7 +8,6 @@ const {Order}=require("../models");
 const createOrder= async(reqBody)=>{
 return Order.create(reqBody);
 };
-
 // get/list Order service
 const getOrderList= async (req,res)=>{
     return Order.find().populate("user").populate("product").populate("payment");
@@ -21,7 +20,6 @@ const getOrderById= async(orderId)=>{
 const deleteOrder= async(orderId)=>{
     return Order.findByIdAndDelete(orderId)
 }
-
 module.exports={
     createOrder,
     getOrderList,
