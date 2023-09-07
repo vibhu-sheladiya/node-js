@@ -16,18 +16,16 @@ const getMobileById=async(mobileId)=>{
 const deleteMobile=async(mobileId)=>{
     return  Mobile.deleteOne({_id:mobileId});
 }
-
 // update Mobile
 const updateMobile=async(mobileId,updateBody)=>{
     return await Mobile.findByIdAndUpdate(mobileId,{ $set: updateBody },{new:true});
 }
-
 // update status
 const changeStatus = async (mobileId) => {
     const mobileEx=await getMobileById(mobileId);
     if(!mobileEx){
         throw new Error('Mobile not found with this Id')
-    }
+}
     return Mobile.findOneAndUpdate({_id:mobileId},{$set:{is_active:!mobileEx.is_active,},},{new:true});
     // return   await Mobile.findOneAndUpdate({ _id : mobileId },{ is_active: !mobileExo['is_active'] },{new:true})
     // return   await Mobile.findOneAndUpdate({'_id':mobileId},{status:'inactive'});

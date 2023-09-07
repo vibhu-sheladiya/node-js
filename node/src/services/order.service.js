@@ -13,12 +13,10 @@ return Order.create(reqBody);
 const getOrderList= async (req,res)=>{
     return Order.find().populate("user").populate("product").populate("payment");
 }
-
 // get Order details by id 
 const getOrderById= async(orderId)=>{
     return Order.findById(orderId);
 };
-
 // delete Order
 const deleteOrder= async(orderId)=>{
     return Order.findByIdAndDelete(orderId)

@@ -15,7 +15,7 @@ const createUser = async (reqBody) => {
   * @returns {Promise<User>}
  */
 const getUserList = async (req,res) => {
-return User.find()
+return User.find({ $or: [ {is_active:true}]})
 // const skip = (Number(options.page || 1) - 1) * Number(options.limit || 10);
 // return User.find(filter).skip(skip).limit(options.limit).select("-password");
   };
@@ -28,7 +28,6 @@ return User.find()
   const deleteUser = async (userId) => {
     return User.findByIdAndDelete(userId);
   };
-  
 module.exports={
     createUser,
     getUserList,
