@@ -4,4 +4,5 @@ module.exports.Product = require("./product.model");
 module.exports.Cart = require("./cart.model");
 module.exports.Order = require("./order.model");
 module.exports.Subcategory = require("./subcategory.model");
+module.exports.Subchildcategory = require("./subchild.category.model");
 
