@@ -66,9 +66,32 @@ const deleteCartById = async (req,res)=> {
         res.status(400).json({success:false,message:error.message})
     }
 };
+
+// update cart
+const updateCart = async (req, res) => {
+    try {
+      const cartId = req.params.cartId;
+      const cartEx = await cartService.getCartListId(cartId);
+      if (!cartEx) {
+        throw new Error("cart does not exist");
+      }
+      await cartService.updateCart(cartId, req.body);
+      res.status(201).json({
+        success: true,
+        message: "successfully updated",
+        data:{cartEx}
+      });
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
 module.exports={
     deleteCartById,
     getCartList,
     getCartDetailsById,
     createCart,
+    updateCart
 }

@@ -4,3 +4,4 @@ module.exports.productController = require("./product.controller");
 module.exports.cartController = require("./cart.controller");
 module.exports.orderController = require("./order.controller");
 module.exports.subcategoryController = require("./subcategory.controller");
+module.exports.subchildcategoryController = require("./subchildcategory.controller");

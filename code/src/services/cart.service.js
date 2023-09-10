@@ -4,7 +4,7 @@ const createCart=async(reqBody)=>{
 };
 
 const getCartList=async(req,res)=>{
-    return Cart.find()
+    return Cart.find().populate('user').populate('product')
 };
 
 const getCartListId=async(cartId)=>{
@@ -14,6 +14,11 @@ const getCartListId=async(cartId)=>{
 const deleteCart=async(cartId)=>{
     return Cart.findByIdAndDelete(cartId)
 }
+
+// update cart
+const updateCart=async(cartId,updateBody)=>{
+    return await Cart.findByIdAndUpdate(cartId,{ $set: updateBody },{new:true});
+}
 module.exports={
-    createCart,getCartList ,deleteCart,getCartListId 
+    createCart,getCartList ,deleteCart,getCartListId ,updateCart
 }

@@ -1,19 +1,21 @@
 const express = require("express");
 
-// const userRoute = require("./user.route");
+const userRoute = require("./user.route");
 const categoryRoute = require("./category.route");
-// const productRoute = require("./product.route");
+const productRoute = require("./product.route");
 const cartRoute = require("./cart.route");
-// const orderRoute = require("./order.route");
-// const subcategoryRoute = require("./subcategory.route");
+const orderRoute = require("./order.route");
+const subcategoryRoute = require("./subcategory.route");
+const subchildcategoryRoute = require("./subchildcategory.route");
 
 const router = express.Router();
 
-// router.use("/user", userRoute);
+router.use("/user", userRoute);
 router.use("/category", categoryRoute);
-// router.use("/product", productRoute);
+router.use("/product", productRoute);
 router.use("/cart", cartRoute);
-// router.use("/order", orderRoute);
-// router.use("/sub-category",subcategoryRoute );
+router.use("/order", orderRoute);
+router.use("/sub-category",subcategoryRoute );
+router.use("/sub-child-category",subchildcategoryRoute );
 
 module.exports = router;

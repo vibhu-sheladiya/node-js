@@ -26,5 +26,7 @@ router.delete("/delete-cart/:cartId",
 cartController.deleteCartById
 );
 
+router.put("/update-cart/:cartId", cartController.updateCart);
+
 
 module.exports=router;
