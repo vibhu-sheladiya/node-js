@@ -3,6 +3,7 @@ const express=require('express');
 const bodyParser = require("body-parser");
 const { connectDB } = require("./src/db/dbConnection");
 const config = require("./src/config/config");
+const cors = require("cors");
 const routes=require('./src/routes/v1');
 const app=express();
 
@@ -18,6 +19,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
  * parse application/json
  */
 app.use(bodyParser.json());
+
+/** enable cors */
+app.use(cors());
+app.options("*", cors());
 
 // router with name space 
 app.use('/v1',routes);

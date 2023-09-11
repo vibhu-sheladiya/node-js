@@ -20,5 +20,5 @@ router.get("/order-id/:orderId", orderController.orderId);
 /**delete order  */
 router.delete("/delete/:orderId", orderController.deleteOrder);
 
-router.put("/update-order/:orderId");
+router.put("/update-order/:orderId",orderController.updateOrder);
 module.exports = router;

@@ -56,12 +56,33 @@ const deleteProduct = async (req, res) => {
     }
     await productService.deleteProduct(ProductId);
     res.status(200).json({
-      data: { product },
+      data: product ,
       message: "success",
       success: true,
     });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const updateProduct = async (req, res) => {
+  try {
+    const ProductId = req.params.ProductId;
+    const productEx = await orderService.orderListId(ProductId);
+    if (!orderEx) {
+      throw new Error("order does not exist");
+    }
+    await orderService.updateOrder(orderId, req.body);
+    res.status(201).json({
+      success: true,
+      message: "successfully updated",
+      data: { orderEx },
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
 module.exports = { createProduct, getProductList, getProductId, deleteProduct };

@@ -4,6 +4,7 @@ const createUser = {
     name: joi.string().required().trim(),
     email: joi.string().required().trim(),
     password: joi.string().required().trim(),
+    img: joi.string().required().trim(),
   }),
 };
 module.exports = { createUser };

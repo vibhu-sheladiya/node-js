@@ -24,7 +24,7 @@ const getUserList = async (req, res) => {
     res.status(200).json({
       message: "successfully fetched all users",
       status: true,
-      data: { ...user },
+      data: user ,
     });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });

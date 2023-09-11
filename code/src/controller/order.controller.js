@@ -86,4 +86,4 @@ const updateOrder = async (req, res) => {
     });
   }
 };
-module.exports = { createOrder, getOrderList, orderId, deleteOrder };
+module.exports = { createOrder, getOrderList, orderId, deleteOrder,updateOrder };
