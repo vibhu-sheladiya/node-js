@@ -15,7 +15,7 @@ router.use("/category", categoryRoute);
 router.use("/product", productRoute);
 router.use("/cart", cartRoute);
 router.use("/order", orderRoute);
-router.use("/sub-category",subcategoryRoute );
-router.use("/sub-child-category",subchildcategoryRoute );
+router.use("/sub-category", subcategoryRoute);
+router.use("/sub-child-category", subchildcategoryRoute);
 
 module.exports = router;

@@ -1,32 +1,26 @@
-const express=require('express');
-const { cartController}=require('../../controller');
-const validate=require('../../middlewares/validate');
-const { cartValidation } = require('../../validations');
+const express = require("express");
+const { cartController } = require("../../controller");
+const validate = require("../../middlewares/validate");
+const { cartValidation } = require("../../validations");
 
-const router=express.Router();
+const router = express.Router();
 
 // create book
-router.post("/create-cart",
-validate(cartValidation.createCarts),
-cartController.createCart
+router.post(
+  "/create-cart",
+  validate(cartValidation.createCarts),
+  cartController.createCart
 );
 
 // get list book detail
-router.get("/list",
-cartController.getCartList
-);
+router.get("/list", cartController.getCartList);
 
-// get Book details By Id 
-router.get("/get-details/:cartId",
-cartController.getCartDetailsById
-);
+// get Book details By Id
+router.get("/get-details/:cartId", cartController.getCartDetailsById);
 
 // delete book
-router.delete("/delete-cart/:cartId",
-cartController.deleteCartById
-);
+router.delete("/delete-cart/:cartId", cartController.deleteCartById);
 
 router.put("/update-cart/:cartId", cartController.updateCart);
 
-
-module.exports=router;
+module.exports = router;
