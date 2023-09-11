@@ -68,11 +68,11 @@ const deleteProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   try {
     const ProductId = req.params.ProductId;
-    const productEx = await orderService.orderListId(ProductId);
+    const productEx = await productService.getProductId(ProductId);
     if (!orderEx) {
-      throw new Error("order does not exist");
+      throw new Error("product does not exist");
     }
-    await orderService.updateOrder(orderId, req.body);
+    await productService.updateProduct(ProductId, req.body);
     res.status(201).json({
       success: true,
       message: "successfully updated",
@@ -85,4 +85,4 @@ const updateProduct = async (req, res) => {
     });
   }
 };
-module.exports = { createProduct, getProductList, getProductId, deleteProduct };
+module.exports = { createProduct, getProductList, getProductId, deleteProduct,updateProduct };

@@ -1,3 +1,4 @@
+const { userController } = require(".");
 const { userService } = require("../services");
 
 const createUser = async (req, res) => {
@@ -60,4 +61,25 @@ const deleteUser = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
-module.exports = { createUser, getUserList, getUserId, deleteUser };
+
+const updateUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const userEx = await userService.getUserId(userId);
+    if (!userEx) {
+      throw new Error("userId does not exist");
+    }
+    await userService.updateUser(userId, req.body);
+    res.status(201).json({
+      success: true,
+      message: "successfully updated",
+      data: { userEx },
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+module.exports = { createUser, getUserList, getUserId, deleteUser,updateUser };

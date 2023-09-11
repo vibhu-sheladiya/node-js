@@ -26,4 +26,6 @@ router.delete(
   subcategoryController.deleteSubCategory
 );
 
+router.put("/update-subcategory/:subcategoryId",subcategoryController.updateSubProduct);
+
 module.exports = router;

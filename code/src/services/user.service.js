@@ -15,4 +15,12 @@ const getUserId = async (userId) => {
 const deleteUserId = async (userId) => {
   return User.findByIdAndDelete(userId);
 };
-module.exports = { createUser, getUserList, deleteUserId, getUserId };
+
+const updateUser = async (userId, updateBody) => {
+  return await User.findByIdAndUpdate(
+    userId,
+    { $set: updateBody },
+    { new: true }
+  );
+};
+module.exports = { createUser, getUserList, deleteUserId, getUserId,updateUser };

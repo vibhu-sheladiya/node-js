@@ -71,9 +71,31 @@ const deleteSubCategory = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
+
+const updateSubProduct = async (req, res) => {
+  try {
+    const subcategoryId = req.params.subcategoryId;
+    const subproductEx = await subcategoryService.getSubCategoryId(subcategoryId);
+    if (!subproductEx) {
+      throw new Error("subproduct does not exist");
+    }
+    await subcategoryService.updateSubProduct(subcategoryId, req.body);
+    res.status(201).json({
+      success: true,
+      message: "successfully updated",
+      data: { subproductEx },
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 module.exports = {
   createSubCategory,
   getSubCategoryList,
   getSubCategoryId,
   deleteSubCategory,
+  updateSubProduct
 };

@@ -17,4 +17,12 @@ const getProductId = async (ProductId) => {
 const deleteProduct = async (productId) => {
   return Product.findByIdAndDelete(productId);
 };
-module.exports = { productList, getProductId, deleteProduct, createProduct };
+
+const updateProduct = async (productId, updateBody) => {
+  return await Product.findByIdAndUpdate(
+    productId,
+    { $set: updateBody },
+    { new: true }
+  );
+};
+module.exports = { productList, getProductId, deleteProduct, createProduct,updateProduct };
