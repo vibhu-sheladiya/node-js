@@ -23,7 +23,7 @@ const getCategoryList = async (req, res) => {
     let categories = await categoryService.categoryList(req, res);
     res.status(200).json({
       message: "successfully fetched all Categories list",
-      data: { categories }, //this is an array of objects
+      data:  categories , //this is an array of objects
       success: true,
     });
   } catch (error) {

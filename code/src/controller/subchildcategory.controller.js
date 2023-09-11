@@ -22,7 +22,7 @@ const getChildCategory = async (req, res) => {
   try {
     let child = await subchildcategoryService.getChildList(req, res);
     res.status(200).json({
-      data: { ...child },
+      data: child ,
       message: "success",
       success: true,
     });

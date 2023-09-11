@@ -7,6 +7,7 @@ const createCategory = {
     sub_child_category: joi.string().required().trim(),
     category: joi.string().required().trim(),
     sub_category: joi.string().required().trim(),
+    img: joi.string().required().trim(),
   }),
 };
 module.exports = { createCategory };

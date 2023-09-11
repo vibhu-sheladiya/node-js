@@ -23,7 +23,7 @@ const getSubCategoryList = async (req, res) => {
     let subcategory = await subcategoryService.getSubCategoryList(req, res);
     res.status(200).json({
       message: "successfully fetched all Categories list",
-      data: { subcategory }, //for pagination use this format
+      data:  subcategory , //for pagination use this format
       success: true, //for pagination use this format
     });
   } catch (error) {

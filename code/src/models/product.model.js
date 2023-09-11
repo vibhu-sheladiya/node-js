@@ -30,6 +30,9 @@ const productScheme = new mongoose.Schema(
       type: mongoose.Types.ObjectId, //reference to the model we want to reference
       ref: "subcategory", //name of the collection in which it is stored
     },
+    img:{
+      type :String ,
+    }
   },
   { timestamps: true }
 );

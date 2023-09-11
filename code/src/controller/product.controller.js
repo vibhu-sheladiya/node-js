@@ -22,7 +22,7 @@ const getProductList = async (req, res) => {
   try {
     let product = await productService.productList(req, res);
     res.status(200).json({
-      data: { ...product },
+      data: product ,
       // message:'success',
       // success:true,
     });
