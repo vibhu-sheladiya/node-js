@@ -19,7 +19,7 @@ const envVarsSchema = joi
 const aa = envVarsSchema
   .prefs({ errors: { label: "key" } })
   .validate(process.env);
-console.log(aa);
+// console.log(aa);
 
 const { value: envVars, error } = envVarsSchema
   .prefs({ errors: { label: "key" } })

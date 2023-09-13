@@ -8,7 +8,8 @@ const bannerSchema=mongoose.Schema(
             trim:true,
         },
         banner_image:{
-            type : String
+            type : String,
+            trim:true,
         },
         banner_des:{
             type:String,
@@ -22,7 +23,15 @@ const bannerSchema=mongoose.Schema(
             type:Boolean , default:false,
         },
     },
-    {timestamps:true,versionKey:false,}
+    {timestamps:true,versionKey:false,
+        toJSON: {
+            transform: function (doc, data) {
+              if (data?.banner_image) {
+                data.banner_image = `${config.base_url}banner_images/${data.banner_image}`;
+              }
+            },
+          },
+    }
 );
 const Banner=mongoose.model('banner',bannerSchema);
 module.exports =Banner;

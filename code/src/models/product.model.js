@@ -14,6 +14,10 @@ const productScheme = new mongoose.Schema(
       type: Number,
       trim: true,
     },
+    product_image:{
+      type :String ,
+      trim: true,
+    },
     is_active: {
       type: Boolean,
       default: false,
@@ -34,7 +38,15 @@ const productScheme = new mongoose.Schema(
       type :String ,
     }
   },
-  { timestamps: true }
+  { timestamps: true,
+    // toJSON: {
+    //   transform: function (doc, data) {
+    //     if (data?.product_image) {
+    //       data.product_image = `${config.base_url}product_images/${data.product_image}`;
+    //     }
+    //   },
+    // },
+  }
 );
 const Product = mongoose.model("product", productScheme);
 module.exports = Product;

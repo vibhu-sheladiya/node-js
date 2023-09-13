@@ -20,6 +20,6 @@ router.use("/order", orderRoute);
 router.use("/sub-category", subcategoryRoute);
 router.use("/sub-child-category", subchildcategoryRoute);
 router.use("/token", tokenRoute);
-// router.use("/banner", bannerRoute);
+router.use("/banner", bannerRoute);
 
 module.exports = router;

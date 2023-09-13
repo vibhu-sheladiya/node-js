@@ -1,20 +1,27 @@
 const { productService } = require("../services");
+const fs=require('fs');
 
 const createProduct = async (req, res) => {
   try {
     const reqBody = req.body;
-    console.log(reqBody, "+++++++product");
-    const product = await productService.createProduct(reqBody);
-    if (!product) {
-      throw new Error("no find product");
+    if(req.file){
+      reqBody.product_image=req.file.filename;
+    }else{
+      throw new Error('product image is required')
     }
+    const createProduct=await productService.createProduct(reqBody);
+    // console.log(reqBody, "+++++++product");
+    // const product = await productService.createProduct(reqBody);
+    // if (!product) {
+    //   throw new Error("no find product");
+    // }
     res.status(201).json({
       message: "success",
-      data: product,
+      data: createProduct,
       success: true,
     });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.status(error?.statusCode || 400).json({ success: false, message: error?.message || 'something went ro wrong, please try again' });
   }
 };
 
