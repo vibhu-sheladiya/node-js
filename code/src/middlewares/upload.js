@@ -9,6 +9,7 @@ const storage = multer.diskStorage({
       fs.mkdirSync(path.join(__dirname, "../public/product_images"), {
         recursive: true, //to create folder recursively
       });
+      console.log(req.fil)
       cb(null, path.join(__dirname, "../public/product_images"));
     }
   },
