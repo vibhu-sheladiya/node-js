@@ -1,16 +1,17 @@
 const joi = require("joi");
 const dotenv = require("dotenv");
 
-dotenv.config({ path: "./.env"});
+dotenv.config({ path: "./.env" });
 
 const envVarsSchema = joi
   .object({
     PORT: joi.number().default(5060),
     MONGODB_URL: joi.string().trim().description("mongodb url"),
     BASE_URL: joi.string().trim().description("Base URL"),
-  JWT_SECRET_KEY: joi.string()
-    .description("Jwt sectreat key")
-    .default("thisisjwtsecreat_key"),
+    JWT_SECRET_KEY: joi
+      .string()
+      .description("Jwt sectreat key")
+      .default("thisisjwtsecreat_key"),
   })
   .unknown();
 // console.log(envVarsSchema)

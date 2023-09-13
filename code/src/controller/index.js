@@ -6,3 +6,4 @@ module.exports.orderController = require("./order.controller");
 module.exports.subcategoryController = require("./subcategory.controller");
 module.exports.subchildcategoryController = require("./subchildcategory.controller");
 module.exports.tokenController = require("./token.controller");
+module.exports.bannerController = require("./banner.controller");

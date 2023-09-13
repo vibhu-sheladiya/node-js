@@ -8,6 +8,7 @@ const orderRoute = require("./order.route");
 const subcategoryRoute = require("./subcategory.route");
 const subchildcategoryRoute = require("./subchildcategory.route");
 const tokenRoute = require("./token.route");
+const bannerRoute = require("./banner.route");
 
 const router = express.Router();
 
@@ -19,5 +20,6 @@ router.use("/order", orderRoute);
 router.use("/sub-category", subcategoryRoute);
 router.use("/sub-child-category", subchildcategoryRoute);
 router.use("/token", tokenRoute);
+// router.use("/banner", bannerRoute);
 
 module.exports = router;

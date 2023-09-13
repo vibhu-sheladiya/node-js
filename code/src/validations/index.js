@@ -6,3 +6,4 @@ module.exports.cartValidation=require('./cart.validation');
 module.exports.orderValidation=require('./order.validation');
 module.exports.subchildcategoryValidation=require('./subchildecategory.validation');
 module.exports.tokenValidation=require('./token.validation');
+// module.exports.bannerValidation=require('./banner.validation');

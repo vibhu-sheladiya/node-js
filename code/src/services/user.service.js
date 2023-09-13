@@ -23,4 +23,10 @@ const updateUser = async (userId, updateBody) => {
     { new: true }
   );
 };
-module.exports = { createUser, getUserList, deleteUserId, getUserId,updateUser };
+module.exports = {
+  createUser,
+  getUserList,
+  deleteUserId,
+  getUserId,
+  updateUser,
+};
