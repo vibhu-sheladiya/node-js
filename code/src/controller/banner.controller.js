@@ -5,14 +5,14 @@ const fs=require('fs');
 const createBanner=async(req,res)=>{
     try {
         const reqBody=req.body;
-        console.log(req.file) 
+        // console.log(req.file) 
         if(req.file){
             // reqBody.product_image=req.file.filename
             reqBody.banner_image=req.file.filename;
         }else{
             throw new Error('banner image is required')
         }
-        console.log(reqBody)
+        // console.log(reqBody)
         const createBanner=await bannerService.createBanner(reqBody);
         res.status(200).json({
             message:'success',

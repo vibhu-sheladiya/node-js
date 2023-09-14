@@ -1,8 +1,8 @@
 const express = require("express");
 const { bannerController } = require("../../controller");
-// const validate = require("../../middlewares/validate");
-const {productValidation,bannerValidation }=require('../../validations')
-// const { cartValidation } = require("../../validations");
+const validate = require("../../middlewares/validate");
+const {bannerValidation }=require('../../validations')
+// const { bannerValidation } = require("../../validations");
 // const auth =require('../../middlewares/auth');
 const {upload}=require('../../middlewares/upload');
 const router = express.Router();
@@ -11,8 +11,8 @@ const router = express.Router();
 router.post(
   "/create-banner",
   // auth(),
-  upload.single('product_image'),
-  // validate(bannerValidation.createBanner),
+  upload.single('banner_image'),
+  validate(bannerValidation.createBanner),
   bannerController.createBanner
 );
 

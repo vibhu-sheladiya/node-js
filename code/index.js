@@ -5,6 +5,7 @@ const { connectDB } = require("./src/db/dbConnection");
 const config = require("./src/config/config");
 const cors = require("cors");
 const routes=require('./src/routes/v1');
+require('./src/middlewares/upload');
 // require("./helpers/crons");
 const app=express();
 
@@ -13,7 +14,7 @@ const app=express();
  * form-data is use for image upload
  * parse application/x-www-form-urlencoded
  */
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /**
  * allow json data from body
