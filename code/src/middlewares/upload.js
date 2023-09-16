@@ -5,12 +5,12 @@ const path = require("path");
 const storage = multer.diskStorage({
   destination:function (req, file, cb) {
     // console.log('hi'+'+++++')
-    if (file.fieldname == "banner_image") {
-      fs.mkdirSync(path.join(__dirname, "../public/banner_images"), {
+    if (file.fieldname == "gallery_image") {
+      fs.mkdirSync(path.join(__dirname, "../public/gallery_images"), {
         recursive: true, //to create folder recursively
       });
       // console.log(req.file)
-      cb(null, path.join(__dirname, "../public/banner_images"));
+      cb(null, path.join(__dirname, "../public/gallery_images"));
     }
   },
   filename: (req, file, cb) => {

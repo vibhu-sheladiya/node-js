@@ -5,6 +5,7 @@ const { connectDB } = require("./src/db/dbConnection");
 const config = require("./src/config/config");
 const cors = require("cors");
 const routes=require('./src/routes/v1');
+const path=require('path');
 require('./src/middlewares/upload');
 // require("./helpers/crons");
 const app=express();
@@ -26,7 +27,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.options("*", cors());
 
-app.use(express.static(`./public`));
+app.use(express.static(path.join(__dirname,`./public`)));
 
 // router with name space 
 app.use('/v1',routes);
@@ -36,7 +37,7 @@ app.use((req, res, next) => {
   next(new Error("Route not found!"));
   });
 
-  app.use(express.static("./public"));
+  // app.use(express.static("./public"));
 
 /** Database connection */
 connectDB()

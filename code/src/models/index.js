@@ -7,3 +7,4 @@ module.exports.Subcategory = require("./subcategory.model");
 module.exports.Subchildcategory = require("./subchild.category.model");
 module.exports.Banner = require("./banner.model");
 module.exports.Token = require("./token.model");
+module.exports.Gallery = require("./gallery.model");

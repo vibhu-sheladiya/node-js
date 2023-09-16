@@ -7,5 +7,6 @@ module.exports.subcategoryService=require('./subcategory.service');
 module.exports.subchildcategoryService=require('./subchildcategory.service');
 module.exports.tokenService=require('./token.service');
 module.exports.bannerService=require('./banner.service');
+module.exports.galleryService=require('./gallery.service');
 
 
