@@ -3,7 +3,7 @@ const config=require('../config/config');
 
 const connectDB=async()=>{
     mongoose
-    .connect(config.url,config.mongodb.option)
+    .connect(config.mongodb.url,config.mongodb.option)
     .then((data)=>{
         console.log("Connected to MongoDB");
     })
