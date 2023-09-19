@@ -6,10 +6,18 @@ const memberSchema=new mongoose.Schema(
             type :Number ,
         },mobile:{
             type:Number,trim:true,
+        },country:{
+            type:String,
         },
-        schedule_date:{ 
-     type:Date,default: Date.now()
-        }
+    //     schedule_date:{ 
+    //  type:Date,default: Date.now()
+    //     }
+    role:{
+        type:Array,
+    },team_member:{
+        type:Array,
+        ref:'member'
+      },
 
 },{timestamps:true,},
 );

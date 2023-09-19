@@ -1,5 +1,9 @@
 module.exports.Coach=require('./coach.model');
 module.exports.Team=require('./team.model');
 module.exports.User=require('./user.model');
-module.exports.Sport=require('./sport.model');
+module.exports.Sport=require('./match.model');
 module.exports.Member=require('./team.member.model');
+module.exports.Tournament=require('./tournament.model');
+module.exports.Founder=require('./founder.model');
+module.exports.Contact=require('./contact.model');
+module.exports.History=require('./history.model');

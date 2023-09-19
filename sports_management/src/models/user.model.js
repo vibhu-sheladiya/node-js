@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema(
       //   enum:['admin','editor'],
       // type:String,enum:['user','publisher'] // enum:-check if the value given is an item in the array
     },
+    history:{
+      type:String,
+      ref:'history',
+    },
   },
   { timestamps: true }
 );
