@@ -13,6 +13,7 @@ const founderSchema=new mongoose.Schema(
             trim:true,
         },
         team:{
+            type:String,
             ref:'team', //reference to the Team model
         },
     },{timestamps:true,},

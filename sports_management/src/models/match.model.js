@@ -20,5 +20,5 @@ const matchSchema=new mongoose.Schema(
           },
     },{ timestamps: true }
 );
-const Sport=mongoose.model('match',matchSchema);
-module.exports =Sport;
+const Match=mongoose.model('match',matchSchema);
+module.exports =Match;

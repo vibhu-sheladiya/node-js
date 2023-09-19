@@ -14,10 +14,7 @@ const memberSchema=new mongoose.Schema(
     //     }
     role:{
         type:Array,
-    },team_member:{
-        type:Array,
-        ref:'member'
-      },
+    },
 
 },{timestamps:true,},
 );

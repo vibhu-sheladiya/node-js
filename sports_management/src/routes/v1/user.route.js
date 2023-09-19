@@ -3,7 +3,7 @@ const express = require("express");
 const { userController } = require("../../controllers");
 // const validate = require("../../middlewares/validate");
 const router = express.Router();
-
+// contact ,history,founder,tournment
 // create user
 router.post(
   "/create-user",
