@@ -17,7 +17,9 @@ const matchSchema=new mongoose.Schema(
         // },
         team:{
             type:String,ref:'team',
-          },
+          },is_active:{
+            type:Boolean, default:true,
+          }
     },{ timestamps: true }
 );
 const Match=mongoose.model('match',matchSchema);

@@ -9,7 +9,9 @@ const contactSchema=new mongoose.Schema(
         email:{
             type:String,
             trim:true,
-        },
+        },is_active:{
+            type : Boolean , default : true  
+        }
     },{timestamps:true,},
 );
 const Contact=mongoose.model('contact',contactSchema)

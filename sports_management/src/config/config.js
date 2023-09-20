@@ -12,14 +12,14 @@ const envVarsSchema=joi
 
 }).unknown();
 
-const aa =envVarsSchema
-.prefs({ errors: { label: "key" } })
-.validate(process.env);
+// const aa =envVarsSchema
+// .prefs({ errors: { label: "key" } })
+// .validate(process.env);
 
 const { value: envVars, error } = envVarsSchema
   .prefs({ errors: { label: "key" } })
   .validate(process.env);
-  console.log(aa)
+  // console.log(aa)
 
   if(error){
     console.log(`Config validation failed`,error);
@@ -34,8 +34,8 @@ const { value: envVars, error } = envVarsSchema
         useUnifiedTopology: true,
       },
     },
-    // base_url: envVars.BASE_URL,
-    // jwt: {
-    //   secret_key: envVars.JWT_SECRET_KEY,
-    // },
+    base_url: envVars.BASE_URL,
+    jwt: {
+      secret_key: envVars.JWT_SECRET_KEY,
+    },
     };

@@ -15,7 +15,11 @@ const founderSchema=new mongoose.Schema(
         team:{
             type:String,
             ref:'team', //reference to the Team model
-        },
+        },is_active:{
+            type:Boolean,
+          default     : false,
+
+        }
     },{timestamps:true,},
 );
 const Founder=mongoose.model('founder',founderSchema);

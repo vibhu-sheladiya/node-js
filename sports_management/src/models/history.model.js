@@ -3,18 +3,20 @@ const historySchema=new mongoose.Schema(
     {
         match:{
             type:String,
-            ref:'',
+            ref:'match',
         },
         team:{
             type:String,
-            ref:'',
+            ref:'team',
         },
         founder:{
             type:String,
-            ref:'',
+            ref:'founder',
         },
         tournament:{
-            type:String,ref:'',
+            type:String,ref:'tournament',
+        },is_active:{
+            type : Boolean ,default : true 
         },
     },{timestamps:true,},
 );

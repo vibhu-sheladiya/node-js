@@ -6,6 +6,9 @@ const tournamentSchema = new mongoose.Schema(
     },
     start_date: Date,
     end_date: Date,
+    is_active:{
+      type : Boolean , default : true
+    }
     // tournament_type:{
     //      type:Number,//0-single 1-double
     //        required:[true,'tournament Type is Required'],

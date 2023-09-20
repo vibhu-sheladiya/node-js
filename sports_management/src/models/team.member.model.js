@@ -14,7 +14,9 @@ const memberSchema=new mongoose.Schema(
     //     }
     role:{
         type:Array,
-    },
+    },is_active:{
+        type:Boolean, default:true,
+    }
 
 },{timestamps:true,},
 );

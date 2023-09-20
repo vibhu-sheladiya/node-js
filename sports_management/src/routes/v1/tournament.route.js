@@ -2,7 +2,7 @@ const express=require('express');
 const {tournamentController}=require('../../controllers');
 const router=express.Router();
 
-router.post('/create-coach',
+router.post('/create-tournament',
 tournamentController.createTournament);
 
 router.get('/list',

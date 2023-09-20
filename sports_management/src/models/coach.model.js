@@ -5,6 +5,10 @@ const coachSchema=new mongoose.Schema(
             type:String,trim:true,
         },
         email:{type: String},
+        is_active:{
+            type:Boolean,
+            default : true,
+        },
     },{ timestamps: true }
 );
 const Coach=mongoose.model('coach',coachSchema);
