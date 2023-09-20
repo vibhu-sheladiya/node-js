@@ -1,17 +1,17 @@
 const mongoose=require('mongoose');
 const config=require('../config/config');
 
-const bannerSchema=mongoose.Schema(
+const gallerySchema=mongoose.Schema(
     {
-        banner_name:{
+        gallery_image_name:{
             type:String,
             trim:true,
         },
-        banner_image:{
+        gallery_image:{
             type : String,
             trim:true,
         },
-        banner_des:{
+        gallery_des:{
             type:String,
             trim:true,
         },
@@ -19,7 +19,6 @@ const bannerSchema=mongoose.Schema(
             type:mongoose.Types.ObjectId,
             ref:'product',
         },
-        
         is_active:{
             type:Boolean , default:false,
         },
@@ -27,12 +26,13 @@ const bannerSchema=mongoose.Schema(
     {timestamps:true,versionKey:false,
         toJSON: {
             transform: function (doc, data) {
-              if (data?.banner_image) {
-                data.banner_image = `${config.base_url}banner_images/${data.banner_image}`;
+              if (data?.gallery_image) {
+                data.gallery_image = `${config.base_url}gallery_images/${data.gallery_image}`;
+                console.log(config.gallery_image)
               }
             },
           },
-    }
-);
-const Banner=mongoose.model('banner',bannerSchema);
-module.exports =Banner;
+        }
+        );
+const Gallery=mongoose.model('gallery',gallerySchema);
+module.exports =Gallery;

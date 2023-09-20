@@ -1,0 +1,9 @@
+module.exports.userValidation=require('./user.validation');
+module.exports.coachValidation=require('./coach.validation');
+module.exports.contactValidation=require('./contact.validation');
+module.exports.founderValidation=require('./founder.validation');
+module.exports.historyValidation=require('./history.validation');
+module.exports.matchValidation=require('./match.validation');
+module.exports.teamValidation=require('./team.validation');
+module.exports.memberValidation=require('./team.member.validation');
+module.exports.tournamentValidation=require('./tournament.validation');
