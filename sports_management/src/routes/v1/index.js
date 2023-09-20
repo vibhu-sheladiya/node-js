@@ -9,6 +9,7 @@ const founderRoute=require('./founder.route');
 const historyRoute=require('./history.route');
 const tournamentRoute=require('./tournament.route');
 const tokenRoute=require('./token.route');
+const galleryRoute=require('./gallery.route');
 // console.log("🚀 ~ file: index.js:11 ~ tournamentRoute:", tournamentRoute)
 
 const router = express.Router();
@@ -23,5 +24,6 @@ router.use('/founder',founderRoute);
 router.use('/history',historyRoute);
 router.use('/tournament',tournamentRoute);
 router.use('/token',tokenRoute);
+router.use('/gallery',galleryRoute);
 
 module.exports=router;

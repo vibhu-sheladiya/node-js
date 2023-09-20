@@ -3,10 +3,10 @@ const config=require('../config/config');
 
 const gallerySchema=mongoose.Schema(
     {
-        gallery_image_name:{
-            type:String,
-            trim:true,
-        },
+        // gallery_image_name:{
+        //     type:String,
+        //     trim:true,
+        // },
         gallery_image:{
             type : String,
             trim:true,
@@ -15,9 +15,9 @@ const gallerySchema=mongoose.Schema(
             type:String,
             trim:true,
         },
-        product:{
+        match:{
             type:mongoose.Types.ObjectId,
-            ref:'product',
+            ref:'match',
         },
         is_active:{
             type:Boolean , default:false,

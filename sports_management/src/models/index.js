@@ -8,3 +8,4 @@ module.exports.Founder=require('./founder.model');
 module.exports.Contact=require('./contact.model');
 module.exports.History=require('./history.model');
 module.exports.Token=require('./token.model');
+module.exports.Gallery=require('./gallery.model');

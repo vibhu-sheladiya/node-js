@@ -8,3 +8,4 @@ module.exports.founderController = require("./founder.controller");
 module.exports.historyController = require("./history.controller");
 module.exports.tournamentController = require("./tournament.controller");
 module.exports.tokenController = require("./token.controller");
+module.exports.galleryController = require("./gallery.controller");

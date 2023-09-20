@@ -8,3 +8,4 @@ module.exports.founderService=require('./founder.service');
 module.exports.historyService=require('./history.service');
 module.exports.tournamentService=require('./tournament.service');
 module.exports.tokenService=require('./token.service');
+module.exports.galleryService=require('./gallery.service');
