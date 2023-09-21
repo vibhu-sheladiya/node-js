@@ -21,4 +21,10 @@ router.get("/user-id/:userId", userController.getUserId);
 router.delete("/delete/:userId", userController.deleteUser);
 
 router.put("/update-user/:userId",userController.updateUser);
+
+router.post(
+  "/send-mail",
+  // validate(userValidation.sendMail),
+  userController.sendMail
+);
 module.exports = router;

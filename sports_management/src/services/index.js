@@ -9,3 +9,4 @@ module.exports.historyService=require('./history.service');
 module.exports.tournamentService=require('./tournament.service');
 module.exports.tokenService=require('./token.service');
 module.exports.galleryService=require('./gallery.service');
+module.exports.emailService=require('./email.service');
