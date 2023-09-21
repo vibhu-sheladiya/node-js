@@ -5,7 +5,7 @@ const craeteMatch=async(reqBody)=>{
 };
 
 const getMatchList=async(req,res)=>{
-    return Match.find();
+    return Match.find().populate('team');
 };
 
 const getMatchId=async(matchId)=>{

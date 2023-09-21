@@ -5,7 +5,7 @@ const createCoach=async(reqBody)=>{
 };
 
 const getCoachList=async(req,res)=>{
-    return Coach.find();
+    return Coach.find()
 };
 
 const getCoachId=async(coachId)=>{

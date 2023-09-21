@@ -8,10 +8,6 @@ const matchSchema=new mongoose.Schema(
         },match_date:{
             type:Date,default: Date.now()
         } ,
-        // img:{
-        //     type:String,
-        //     trim:true,
-        // },
         // time:{
         //     type:Number,
         // },

@@ -5,7 +5,7 @@ const createHistory=async(reqBody)=>{
 };
 
 const getHistoryList=async(req,res)=>{
-    return History.find();
+    return History.find().populate('match').populate('team').populate('founder').populate('tournament');
 };
 
 const getHistoryId=async(historyId)=>{

@@ -5,7 +5,7 @@ const createUser = async (reqBody) => {
 };
 
 const getUserList = async (req, res) => {
-  return User.find();
+  return User.find().populate('history');
 };
 
 const getUserId = async (userId) => {

@@ -5,7 +5,7 @@ const craeteTeam=async(reqBody)=>{
 };
 
 const getTeamList=async(req,res)=>{
-    return Team.find();
+    return Team.find().populate('coach').populate('team_member');
 };
 
 const getTeamId=async(teamId)=>{
