@@ -5,7 +5,7 @@ const craeteMember=async(reqBody)=>{
 };
 
 const getMemberList=async(req,res)=>{
-    return Member.find();
+    return Member.find().count();
 };
 
 const getMemberId=async(memberId)=>{

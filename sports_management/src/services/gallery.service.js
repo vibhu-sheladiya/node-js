@@ -4,6 +4,7 @@ const createGallery=async(reqBody)=>{
     return Gallery.create(reqBody);
 };
 const getGallery=async()=>{
+    // return await Gallery.find().count();
     return await Gallery.find();
 };
 module.exports={
