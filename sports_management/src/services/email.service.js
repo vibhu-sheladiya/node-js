@@ -7,7 +7,7 @@ let transport = nodemailer.createTransport({
   auth: {
     user: config.email.smtp.auth.user,
     pass: config.email.smtp.auth.pass,
-  },
+  },// upr ni key same rakhvi no change bcz ae nodemailer mathi ave 6
 });
 
 /** Send mail */
@@ -15,8 +15,8 @@ const sendMail = async (to, subject, text) => {
   try {
     return transport.sendMail({
       from: config.email.from,
-      to,
       subject,
+      to,
       text,
       html: `
       <div
