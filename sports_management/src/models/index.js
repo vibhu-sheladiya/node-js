@@ -1,6 +1,7 @@
 module.exports.Coach=require('./coach.model');
 module.exports.Team=require('./team.model');
 module.exports.User=require('./user.model');
+module.exports.Admin=require('./user.model');
 module.exports.Match=require('./match.model');
 module.exports.Member=require('./team.member.model');
 module.exports.Tournament=require('./tournament.model');

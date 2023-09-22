@@ -10,3 +10,4 @@ module.exports.tournamentService=require('./tournament.service');
 module.exports.tokenService=require('./token.service');
 module.exports.galleryService=require('./gallery.service');
 module.exports.emailService=require('./email.service');
+module.exports.adminService=require('./admin.service');

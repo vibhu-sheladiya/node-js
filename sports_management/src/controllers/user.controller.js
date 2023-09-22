@@ -1,23 +1,63 @@
 // const { userController } = require(".");
-const { userService, emailService } = require("../services");
+// const { Admin } = require("../models");
+const { userService, emailService, adminService } = require("../services");
 
 const createUser = async (req, res) => {
+  console.log('ok')
   try {
+    console.log('ok2')
+     // If request is from user end
     const reqBody = req.body;
-    console.log(reqBody, "++++++user");
-    const user = await userService.createUser(reqBody);
-    if (!user) {
-      throw new Error("no such user");
+    console.log('ok3')
+    if(reqBody.role=='user'){
+      console.log('ok4')
+      if (!! await userService.findUser(req,res)) {
+        console.log('ok5')
+        return res.status(208).json({
+            "message": "Email or Phone Number already registered"
+        });
+      }
+      console.log(reqBody, "++++++user");
+      const user = await userService.createUser(reqBody);
+      if (!user) {
+        throw new Error("no such user");
+      }
+      res.status(200).json({
+        message: "Successfully created a new employee",
+        success: true,
+        data: { user },
+      });
     }
-    res.status(200).json({
-      message: "Successfully created a new user",
+  // If request is from admin end
+    else if(reqBody.role=='admin') {
+      
+      if (!! await adminService.findAdmin(req,res) ) {
+        return res.status(400).json({
+            "message": "Email or Phone Number already registered for admin "
+        });
+    }
+    console.log(reqBody, "++++++admin");
+    const admin = await adminService.createAdmin(reqBody);
+    if (!admin) {
+      throw new Error("no such admin");
+    }
+    return res.status(201).json({
+      message: "Successfully created a new employee",
       success: true,
-      data: { user },
+      data: { admin },
     });
-  } catch (error) {
+    }
+   // Invalid User type
+   else {
+    return res.status(400).json({
+        "message": "Invalid User Type"
+    });
+}
+   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
-  }
+   }
 };
+
 
 const getUserList = async (req, res) => {
   try {
