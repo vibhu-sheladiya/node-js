@@ -27,7 +27,8 @@ app.use(bodyParser.json());
 app.use(cors());
 app.options("*", cors());
 
-app.use(express.static(path.join(__dirname,`./public`)));
+console.log(__dirname,"dirname")
+app.use(express.static(path.join(__dirname,`./src/public`)));
 
 // router with name space 
 app.use('/v1',routes);

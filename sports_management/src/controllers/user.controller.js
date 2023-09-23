@@ -3,18 +3,20 @@
 const { userService, emailService, adminService } = require("../services");
 
 const createUser = async (req, res) => {
-  console.log('ok')
+  console.log("ok");
   try {
-    console.log('ok2')
-     // If request is from user end
+    console.log("ok2");
+    // If request is from user end
     const reqBody = req.body;
-    console.log('ok3')
-    if(reqBody.role=='user'){
-      console.log('ok4')
-      if (!! await userService.findUser(req,res)) {
-        console.log('ok5')
+    console.log("ok3");
+    if (reqBody.role == "user") {
+      console.log("ok4");
+
+      if (!!(await userService.findUser(reqBody))) {
+        console.log("ok5");
+        
         return res.status(208).json({
-            "message": "Email or Phone Number already registered"
+          message: "Email or Phone Number already registered",
         });
       }
       console.log(reqBody, "++++++user");
@@ -28,36 +30,34 @@ const createUser = async (req, res) => {
         data: { user },
       });
     }
-  // If request is from admin end
-    else if(reqBody.role=='admin') {
-      
-      if (!! await adminService.findAdmin(req,res) ) {
+    // If request is from admin end
+    else if (reqBody.role == "admin") {
+      if (!!(await adminService.findAdmin(req, res))) {
         return res.status(400).json({
-            "message": "Email or Phone Number already registered for admin "
+          message: "Email or Phone Number already registered for admin ",
         });
+      }
+      console.log(reqBody, "++++++admin");
+      const admin = await adminService.createAdmin(reqBody);
+      if (!admin) {
+        throw new Error("no such admin");
+      }
+      return res.status(201).json({
+        message: "Successfully created a new employee",
+        success: true,
+        data: { admin },
+      });
     }
-    console.log(reqBody, "++++++admin");
-    const admin = await adminService.createAdmin(reqBody);
-    if (!admin) {
-      throw new Error("no such admin");
+    // Invalid User type
+    else {
+      return res.status(400).json({
+        message: "Invalid User Type",
+      });
     }
-    return res.status(201).json({
-      message: "Successfully created a new employee",
-      success: true,
-      data: { admin },
-    });
-    }
-   // Invalid User type
-   else {
-    return res.status(400).json({
-        "message": "Invalid User Type"
-    });
-}
-   } catch (error) {
+  } catch (error) {
     res.status(400).json({ success: false, message: error.message });
-   }
+  }
 };
-
 
 const getUserList = async (req, res) => {
   try {
@@ -65,7 +65,7 @@ const getUserList = async (req, res) => {
     res.status(200).json({
       message: "successfully fetched all users",
       status: true,
-      data: user ,
+      data: user,
     });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
@@ -126,13 +126,13 @@ const updateUser = async (req, res) => {
 const sendMail = async (req, res) => {
   try {
     const reqBody = req.body;
-    console.log('get req body');
+    console.log("get req body");
     const sendEmail = await emailService.sendMail(
       reqBody.email,
       reqBody.subject,
       reqBody.text
-      );
-      console.log('Send Done..');
+    );
+    console.log("Send Done..");
     if (!sendEmail) {
       throw new Error("Something went wrong, please try again or later.");
     }
@@ -144,4 +144,11 @@ const sendMail = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
-module.exports = { createUser, getUserList, getUserId, deleteUser,updateUser ,sendMail};
+module.exports = {
+  createUser,
+  getUserList,
+  getUserId,
+  deleteUser,
+  updateUser,
+  sendMail,
+};

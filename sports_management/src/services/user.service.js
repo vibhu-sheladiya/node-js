@@ -1,6 +1,7 @@
 const { User } = require("../models");
 
 const findUser=async(reqBody)=>{
+  console.log(reqBody,'SERVICE')
   return User.findOne({$or:[{email:reqBody.email},{phone:reqBody.phone}]})
 }
 const createUser = async (reqBody) => {

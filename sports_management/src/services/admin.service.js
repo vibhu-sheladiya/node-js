@@ -1,23 +1,23 @@
-const { Admin } = require("../models");
+const { User } = require("../models");
 
 const findAdmin=async(reqBody)=>{
-  return Admin.findOne({$or:[{email:reqBody.email},{phone:reqBody.phone}]})
+  return User.findOne({$or:[{email:reqBody.email},{phone:reqBody.phone}]})
 }
 const createAdmin = async (reqBody) => {
-  return Admin.create(reqBody);
+  return User.create(reqBody);
 };
 
-const getAdminList = async (req, res) => {
-  return Admin.find();
-};
+// const getAdminList = async (req, res) => {
+//   return User.find();
+// };
 
-const getAdminId = async (adminId) => {
-  return Admin.findById(adminId);
-};
+// const getAdminId = async (adminId) => {
+//   return User.findById(adminId);
+// };
 
-const deleteAdminId = async (adminId) => {
-  return Admin.findByIdAndDelete(adminId);
-};
+// const deleteAdminId = async (adminId) => {
+//   return User.findByIdAndDelete(adminId);
+// };
 
 // const updateUser = async (adminId, updateBody) => {
 //   return await Admin.findByIdAndUpdate(
@@ -28,8 +28,8 @@ const deleteAdminId = async (adminId) => {
 // };
 module.exports = {
   findAdmin,
-  deleteAdminId,
-  getAdminId,
-  getAdminList,
+  // deleteAdminId,
+  // getAdminId,
+  // getAdminList,
   createAdmin,findAdmin
 };
