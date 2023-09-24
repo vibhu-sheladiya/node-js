@@ -16,7 +16,5 @@ const deleteAdminId=async(adminId)=>{
     return Admin.findByIdAndDelete(adminId);
 };
 
-const updateAdmin=async(adminId,updateBody)=>{
-    return await Admin.findByIdAndUpdate(adminId,{$set:updateBody},{new:true});
-};
-module.exports={createAdmin ,getAdminList,deleteAdminId,updateAdmin,getAdminId}
+
+module.exports={createAdmin ,getAdminList,deleteAdminId,getAdminId}

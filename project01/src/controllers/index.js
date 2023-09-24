@@ -1,0 +1,15 @@
+module.exports.adminController = require("./admin.controller");
+module.exports.aloginController = require("./admin.login.controller");
+module.exports.alogoutController = require("./admin.logout.controller");
+module.exports.clientController = require("./client.controller");
+module.exports.companyController = require("./company.controller");
+module.exports.departmentController = require("./department.controller");
+module.exports.empController = require("./emp.controller");
+module.exports.eloginController = require("./emp.login.controller");
+module.exports.elogoutController = require("./emp.logout.controller");
+module.exports.memberController = require("./member.controller");
+module.exports.positionController = require("./position.controller");
+module.exports.projectController = require("./project.controller");
+module.exports.roleController = require("./role.controller");
+module.exports.viewController = require("./view.emp.controller");
+module.exports.workerController = require("./worker.controller");
