@@ -1,0 +1,15 @@
+module.exports.Admin=require('./admin.model');
+module.exports.Client=require('./company.client.details.model');
+module.exports.Company=require('./company.detail.model');
+module.exports.Department=require('./department.model');
+module.exports.Elogin=require('./emp.login.model');
+module.exports.Elogout=require('./emp.logout.model');
+module.exports.Employee=require('./employee.detail.model');
+module.exports.Ladmin=require('./login.admin.model');
+module.exports.Logoutadmin=require('./logout.admin.model');
+module.exports.Member=require('./member.model');
+module.exports.Position=require('./position.model');
+module.exports.Project=require('./project.detail.model');
+module.exports.Role=require('./role.model');
+module.exports.Viewdetail=require('./view.employee.model');
+module.exports.Worker=require('./worker.model');

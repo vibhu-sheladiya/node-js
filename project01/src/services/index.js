@@ -1,0 +1,15 @@
+module.exports.adminService=require('./admin.service');
+module.exports.clientService=require('./company.client.service');
+module.exports.companyService=require('./company.detail');
+module.exports.departmentService=require('./department.service');
+module.exports.eloginService=require('./emp.login.service');
+module.exports.elogoutService=require('./emp.logout.service');
+module.exports.employeeService=require('./employee.service');
+module.exports.aloginService=require('./login.admin.service');
+module.exports.alogoutService=require('./logout.admin');
+module.exports.memberService=require('./member.service');
+module.exports.positionService=require('./position.sevice');
+module.exports.projectService=require('./project.detail.service');
+module.exports.roleService=require('./role.service');
+module.exports.viewemployeeService=require('./view.employee.service');
+module.exports.workerService=require('./worker.service');
