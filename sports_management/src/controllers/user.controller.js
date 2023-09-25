@@ -3,17 +3,12 @@
 const { userService, emailService, adminService } = require("../services");
 
 const createUser = async (req, res) => {
-  console.log("ok");
   try {
-    console.log("ok2");
     // If request is from user end
     const reqBody = req.body;
-    console.log("ok3");
     if (reqBody.role == "user") {
-      console.log("ok4");
 
       if (!!(await userService.findUser(reqBody))) {
-        console.log("ok5");
         
         return res.status(208).json({
           message: "Email or Phone Number already registered",
@@ -31,23 +26,23 @@ const createUser = async (req, res) => {
       });
     }
     // If request is from admin end
-    else if (reqBody.role == "admin") {
-      if (!!(await adminService.findAdmin(req, res))) {
-        return res.status(400).json({
-          message: "Email or Phone Number already registered for admin ",
-        });
-      }
-      console.log(reqBody, "++++++admin");
-      const admin = await adminService.createAdmin(reqBody);
-      if (!admin) {
-        throw new Error("no such admin");
-      }
-      return res.status(201).json({
-        message: "Successfully created a new employee",
-        success: true,
-        data: { admin },
-      });
-    }
+    // else if (reqBody.role == "admin") {
+    //   if (!!(await adminService.findAdmin(req, res))) {
+    //     return res.status(400).json({
+    //       message: "Email or Phone Number already registered for admin ",
+    //     });
+    //   }
+    //   console.log(reqBody, "++++++admin");
+    //   const admin = await adminService.createAdmin(reqBody);
+    //   if (!admin) {
+    //     throw new Error("no such admin");
+    //   }
+    //   return res.status(201).json({
+    //     message: "Successfully created a new employee",
+    //     success: true,
+    //     data: { admin },
+    //   });
+    // }
     // Invalid User type
     else {
       return res.status(400).json({
@@ -58,6 +53,26 @@ const createUser = async (req, res) => {
     res.status(400).json({ success: false, message: error.message });
   }
 };
+
+const Login = async(req, res)=>{
+  try {
+    if(!reqBody.email || !reqBody.password || ! reqBody.role){
+      res.status(400).json({ success: false, message: error.message });
+    }
+    let user;
+ 
+        // Find if email exists
+        if(reqBody.role === 'customer'){
+          user=  await userService.findEmail(reqBody)
+          }else if(){
+            // admin=   await AdminModel.findOne({'phone_number':reqBody.phoneNumber,'password' : <PASSWORD> })
+            user = await 
+            }
+  } catch (error) {
+    
+  }
+}
+
 
 const getUserList = async (req, res) => {
   try {
